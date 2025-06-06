@@ -1,0 +1,63 @@
+# Composer / Dependencies
+# 依存関係のパッケージはバージョン管理に含めません
+/vendor/
+/fuel/vendor/
+/composer.lock
+
+# FuelPHP Core & Packages
+# フレームワークのコアファイルやパッケージはComposerで管理します
+/fuel/core/
+/fuel/packages/
+/fuel/app/modules/
+/fuel/app/vendor/
+
+# Logs & Cache
+# ログファイルやキャッシュファイルは環境ごとに生成されるため無視します
+/fuel/app/logs/
+/fuel/app/cache/
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# IDE & Editor Settings
+# 各開発者のエディタ設定が混入しないようにします
+.vscode/*
+!.vscode/launch.json
+!.vscode/*.code-snippets
+
+.idea/
+!.idea/workspace.xml
+!.idea/shelf/
+
+# Environment Variables
+# 環境変数ファイルはサーバー固有の情報を含むため、リポジトリに含めません
+.env
+.env.*
+!.env.example
+
+# Production/Build Artifacts
+# ビルドによって生成されるファイル
+/build/
+/dist/
+/public/assets/
+
+# macOS
+# Mac特有の隠しファイル
+.DS_Store
+
+# Misc
+# その他の無視ファイル
+*.pem
+*.tsbuildinfo
+.vercel
+
+nbproject
+*.tmproj
+*.swp~
+
+#intellij
+/change.php
