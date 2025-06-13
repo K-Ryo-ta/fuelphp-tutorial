@@ -12,6 +12,7 @@
  */
 
 use Fuel\Core\DB;
+use Fuel\Core\Input;
 
 /**
  * The Welcome Controller.
@@ -135,6 +136,37 @@ class Controller_Original extends Controller
   public function action_delete()
   {
     DB::delete('friends')->where('id', '=', '2')->execute();
+  }
+
+  public function action_form()
+  {
+    if (Input::method() == 'POST') {
+      $val = Validation::forge();
+      $val->add_field('name1', '姓', 'required');
+      $val->add_field('name2', '名', 'required');
+      $val->add_field('tel', '電話番号', 'required');
+      $val->add_field('email', 'メールアドレス', 'required|valid_email');
+      $val->add_field('age', '年齢', 'numeric_between[18,35]');
+      if ($val->run()) {
+        echo "Validation passed!";
+        exit;
+      } else {
+        echo "Validation failed! . '<br>'";
+        foreach ($val->error() as $field => $error) {
+          echo $error->get_message() . '<br>';
+        }
+        exit;
+      }
+    }
+
+
+    DB::insert('friends')->set(array(
+      'name1' => Input::post('name1'),
+      'name2' => Input::post('name2'),
+      'tel' => Input::post('tel'),
+      'email' => Input::post('email'),
+    ))->execute();
+    return View::forge('form');
   }
 
   /**
