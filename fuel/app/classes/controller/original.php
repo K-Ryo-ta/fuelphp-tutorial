@@ -20,7 +20,7 @@
  * @package  app
  * @extends  Controller
  */
-class Controller_Welcome extends Controller
+class Controller_Original extends Controller
 {
   /**
    * The basic welcome message
@@ -38,6 +38,12 @@ class Controller_Welcome extends Controller
   {
     // return Response::forge(View::forge('welcome/index'));
     echo "ニコニコにーーーーーー";
+  }
+
+  public function action_word($word)
+  {
+    // return Response::forge(View::forge('welcome/index'));
+    echo $word;
   }
 
   /**
