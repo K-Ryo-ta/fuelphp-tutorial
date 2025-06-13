@@ -11,6 +11,10 @@
 /fuel/app/modules/
 /fuel/app/vendor/
 
+# config files
+fuel/app/config/*.php
+fuel/app/config/*/*.php
+
 # Logs & Cache
 # ログファイルやキャッシュファイルは環境ごとに生成されるため無視します
 /fuel/app/logs/

@@ -16,7 +16,8 @@
         "fuelphp/upload": "2.0.6",
         "monolog/monolog": "1.5.*",
         "phpseclib/phpseclib": "2.0.0",
-        "michelf/php-markdown": "1.4.0"
+        "michelf/php-markdown": "1.4.0",
+        "twig/twig": "^2.0"
     },
     "require-dev": {
         "fuel/docs": "1.8.*"
@@ -30,7 +31,10 @@
         "mthaml/mthaml": "Allow Haml templating with Twig supports with the Parser package"
     },
     "config": {
-        "vendor-dir": "fuel/vendor"
+        "vendor-dir": "fuel/vendor",
+        "allow-plugins": {
+            "composer/installers": true
+        }
     },
     "extra": {
         "installer-paths": {
@@ -45,4 +49,3 @@
     },
     "minimum-stability": "stable"
 }
-
