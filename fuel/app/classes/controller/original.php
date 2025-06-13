@@ -11,6 +11,7 @@
  * @link       http://fuelphp.com
  */
 
+use Auth\Auth;
 use Fuel\Core\DB;
 use Fuel\Core\Input;
 
@@ -207,8 +208,52 @@ class Controller_Original extends Controller
 
   public function action_mail()
   {
-    // mb_send_mail('studyprograming51@gmail.com', 'メールのタイトル', 'メールの本文');
     return View::forge('mail');
+  }
+
+  public function action_auth()
+  {
+    // Auth::create_user('yamada', 'password', 'yamada@test.com', 1);
+    // var_dump(Auth::login('suzuki', 'password'));
+    if (Auth::login('yamada', 'newpassword')) {
+      echo "ログイン成功";
+    } else {
+      echo "ログイン失敗";
+    }
+  }
+
+  public function action_logout()
+  {
+    Auth::logout();
+    echo "ログアウトしました";
+  }
+
+  public function action_authcheck()
+  {
+    if (Auth::check()) {
+      echo "ログインしています";
+    } else {
+      echo "ログインしていません";
+    }
+  }
+
+  public function action_changepassword()
+  {
+    Auth::change_password('password', 'newpassword', 'yamada');
+  }
+
+  public function action_updatemailaddress()
+  {
+    Auth::update_user(
+      array('email' => 'new@test.com'),
+    );
+  }
+
+  public function action_deleteuser()
+  {
+    Auth::delete_user(
+      'yamada'
+    );
   }
 
   /**
