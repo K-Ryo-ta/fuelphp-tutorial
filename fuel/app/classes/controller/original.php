@@ -11,6 +11,8 @@
  * @link       http://fuelphp.com
  */
 
+use Fuel\Core\DB;
+
 /**
  * The Welcome Controller.
  *
@@ -99,6 +101,25 @@ class Controller_Original extends Controller
     ];
 
     return View::forge('twigpractice.twig', $data);
+  }
+
+  public function action_insert()
+  {
+    DB::insert('friends')->set(array(
+      'name1' => '山田',
+      'name2' => '太郎',
+      'tel' => '09012345678',
+      'email' => 'taro@example.com',
+    ))->execute();
+  }
+
+  public function action_select()
+  {
+    // $result = DB::select('*')->from('friends')->where('id', '=', '2')->execute()->as_array();
+    // $result = DB::select('*')->from('friends')->order_by('age', 'desc')->execute()->as_array();
+    $result = DB::select('*')->from('friends')->where('age', '>=', '30')->execute()->as_array();
+    echo '<pre>';
+    print_r($result);
   }
 
   /**
