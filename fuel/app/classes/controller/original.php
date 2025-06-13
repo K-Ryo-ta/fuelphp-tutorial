@@ -205,6 +205,12 @@ class Controller_Original extends Controller
     return View::forge('upload');
   }
 
+  public function action_mail()
+  {
+    // mb_send_mail('studyprograming51@gmail.com', 'メールのタイトル', 'メールの本文');
+    return View::forge('mail');
+  }
+
   /**
    * A typical "Hello, Bob!" type example.  This uses a Presenter to
    * show how to use them.
