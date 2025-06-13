@@ -14,6 +14,7 @@
 use Auth\Auth;
 use Fuel\Core\DB;
 use Fuel\Core\Input;
+use Fuel\Core\Session;
 
 /**
  * The Welcome Controller.
@@ -254,6 +255,15 @@ class Controller_Original extends Controller
     Auth::delete_user(
       'yamada'
     );
+  }
+
+  public function action_session()
+  {
+    // Session::set('birthday', '7月7日');
+    // echo Session::get('birthday');
+    // Session::delete('birthday');
+    // Session::set_flash('birthday', '7月7日');
+    // echo Session::get_flash('birthday');
   }
 
   /**
