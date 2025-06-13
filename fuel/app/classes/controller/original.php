@@ -122,6 +122,21 @@ class Controller_Original extends Controller
     print_r($result);
   }
 
+  public function action_update()
+  {
+    // DB::update('friends')->value('name1', '佐藤')->where('id', '=', '1')->execute();
+    DB::update('friends')->set(array(
+      'name1' => '近藤',
+      'name2' => '花子',
+      'tel'  => '08098765432',
+    ))->where('id', '=', '3')->execute();
+  }
+
+  public function action_delete()
+  {
+    DB::delete('friends')->where('id', '=', '2')->execute();
+  }
+
   /**
    * A typical "Hello, Bob!" type example.  This uses a Presenter to
    * show how to use them.
