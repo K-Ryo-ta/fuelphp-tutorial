@@ -46,6 +46,44 @@ class Controller_Original extends Controller
     echo $word;
   }
 
+  public function action_viewtest()
+  {
+    $data = array();
+    $data['date'] = date('Y年n月j日');
+    return View::forge('viewtest', $data);
+  }
+
+  public function action_layout()
+  {
+    $data = array();
+    $data['title'] = 'Layout Example';
+    $data['content'] = 'This is an example of using a layout with views in FuelPHP.';
+
+    $view = array();
+    $view['header'] = View::forge('header', $data);
+    $view['content'] = View::forge('content', $data);
+    $view['footer'] = View::forge('footer');
+
+    return View::forge('layout', $view);
+  }
+
+  public function action_arrayView()
+  {
+    $data = array();
+
+    $data['fruits'] = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry'];
+
+    $data['members'] = [
+      array('name' => 'John', 'age' => 30),
+      array('name' => 'Mari', 'age' => 20),
+      array('name' => 'Tatsuya', 'age' => 21),
+      array('name' => 'Kobayashi', 'age' => 26),
+      array('name' => 'Mikel', 'age' => 35),
+    ];
+
+    return View::forge('array', $data);
+  }
+
   /**
    * A typical "Hello, Bob!" type example.  This uses a Presenter to
    * show how to use them.
