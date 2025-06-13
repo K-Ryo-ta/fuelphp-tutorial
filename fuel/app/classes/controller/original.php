@@ -84,6 +84,23 @@ class Controller_Original extends Controller
     return View::forge('array', $data);
   }
 
+  public function action_twig()
+  {
+    $data = array();
+
+    $data['name'] = 'twigwig';
+
+    $data['members'] = [
+      array('name' => 'John', 'age' => 30),
+      array('name' => 'Mari', 'age' => 20),
+      array('name' => 'Tatsuya', 'age' => 21),
+      array('name' => 'Kobayashi', 'age' => 26),
+      array('name' => 'Mikel', 'age' => 35),
+    ];
+
+    return View::forge('twigpractice.twig', $data);
+  }
+
   /**
    * A typical "Hello, Bob!" type example.  This uses a Presenter to
    * show how to use them.

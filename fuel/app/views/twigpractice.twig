@@ -1,0 +1,23 @@
+<html>
+
+<body>
+<h1>Twig Practice</h1>
+<p>Welcome to the Twig practice page!</p>
+
+    <p>Hello, {{ name }} !</p>
+
+    <table>
+      <tr>
+        <th>名前</th>
+        <th>年齢</th>
+      </tr>
+      {% for member in members %}
+        <tr>
+          <td>{{ member['name'] }}</td>
+          <td>{{ member['age'] }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+</body>
+
+</html>
